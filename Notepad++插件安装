@@ -1,0 +1,7 @@
+1.Notepad++菜单项，插件点进去没有Plugin Manager，可以自己导入下。
+（1）下载Plugin Manager压缩包，解压后会有一个plugins文件夹和一个updater文件夹
+（2）将上述两个文件夹下的PluginManager.dll和gpup.exe文件分别拷贝至Notepad++安装目录下的plugins和updater文件夹下。
+（3）重启Notepad++
+（4）通过PluginManager就可以下载其他插件了。
+
+可以在本项目的resources中找到一些下载包

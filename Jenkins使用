@@ -1,0 +1,6 @@
+1.安装tomcat
+2.官网下载jenkins war包
+地址： http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+3.切换路径到tomcat的webapps目录，将jenkins.war文件放在该目录下
+4.tomcat/bin下启动tomcat，sh startup.sh，tomcat会解压war包，生成一个jenkins文件夹，可以通过ip+port/jenkins访问jenkins。
+5.也可以直接下载jenkins压缩包，解压后直接.msi文件安装。
