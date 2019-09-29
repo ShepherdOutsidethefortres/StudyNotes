@@ -11,3 +11,5 @@ git remote add origin https://github.com/ShepherdOutsidethefortres/JavaBase.git
 （5）往远程仓库推
 git push <远程主机名> <本地分支名>:<远程分支名>
 git push orgin masteer:master
+2.git pull
+它是git fetch 和git merge的组合体
