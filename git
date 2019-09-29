@@ -1,0 +1,13 @@
+1.本地仓库和远程仓库建立关联
+（1）本地仓库操作
+git add -A
+git commit -m "xxx" -a
+（2）github创建仓库
+（3）本地仓库添加github上的git仓库作为远程仓库，起名origin
+git remote add origin https://github.com/ShepherdOutsidethefortres/JavaBase.git
+（4）问题：refusing to merge unrelated histories
+解决：git pull origin master --allow-unrelated-histories
+合并两个独立启动仓库的历史
+（5）往远程仓库推
+git push <远程主机名> <本地分支名>:<远程分支名>
+git push orgin masteer:master
