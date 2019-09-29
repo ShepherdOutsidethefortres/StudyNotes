@@ -1,0 +1,15 @@
+1. Could not initialize plugin: interface org.mockito.plugins.MockMaker错误日志
+继续往下看，会看到.ClassNotFoundException: net.bytebuddy.dynamic.loading.ClassInjecto
+现在的mockito-core框架依赖于byte-buddy.jar,byte-buddy-agent.jar,objenesis.jar
+2.调用方法返回boolean或者异常格式：
+when(mock.isOk()).thenReturn(true);
+when(mock.isOk()).thenThrow(exception);
+doThrow(exception).when(mock).someVoidMethod();
+3.在需要Mock的属性上标记@Mock注解，然后@RunWith(MockitoJUnitRunner.class)或者在setUp()方法中显示调用MockitoAnnotations.initMocks(this);生成Mock类即可
+4.Sometimes it's impossible to usewhen(Object) for stubbing spies. Example:
+    List list = new LinkedList();
+    List spy = spy(list);
+    //Impossible: real method is called so spy.get(0) throwsIndexOutOfBoundsException (the list is yet empty)
+    when(spy.get(0)).thenReturn("foo");
+    //You have to use doReturn() for stubbing
+    doReturn("foo").when(spy).get(0);
