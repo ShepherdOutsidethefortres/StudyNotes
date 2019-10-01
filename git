@@ -13,3 +13,37 @@ git push <远程主机名> <本地分支名>:<远程分支名>
 git push orgin masteer:master
 2.git pull
 它是git fetch 和git merge的组合体
+3.查看git提交日志
+git log
+4.回滚git代码
+git reset --hard 版本id
+5.//切换分支
+  git checkout master
+  //放弃本地所有更改
+  git checkout .
+  //查看本地分支
+  git branch
+  //查看所有分支
+  git branch -a
+  //git提交代码
+  git commit  -m  "提交信息"
+  //git比对某一次提交
+   git diff commitId filepath 与某一次提交进行比较
+  //git拉取最新分支
+  git fetch -p
+  //git clone保存密码
+  git clone http://zhaohuiwei_iwaimai.baidu.com_waimai:123Asd#@xiaolvyun.baidu.com/git/waimai/wl_logistics/elerider
+  更新单个文件
+  git fetch
+  例如：de89c13..c22a62d  elezhongbao_1-10-94_BRANCH -> origin/elezhongbao_1-10-94_BRANCH
+  git checkout -m 版本号 文件
+  例如：git checkout -m c22a62d 文件
+  //回退到冲突前
+  git reset --merge
+  //提交时转换为LF，检出时转换为CRLF.Git 可以在你提交时自动地把回车（CR）和换行（LF）转换成换行（LF）
+
+  git config --global core.autocrlf true
+  //提交本地分支到远程仓库
+  git push origin 本地分支名
+  //新建本地分支与远程分支关联
+  git branch –set-upstream 本地新建分支名 origin/远程分支名
