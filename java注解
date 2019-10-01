@@ -1,0 +1,38 @@
+注解就是标签
+定义注解
+public @interface TestAnnotation{
+}
+
+注解如何生效？
+需要元注解。
+
+什么是元注解？
+它的作用和目的就是给其他普通的标签进行解释说明的。有5种：@Retention、@Documented、@Target、@Inherited、@Repeatable 。
+
+@Retention
+标明注解存活时间。
+取值：
+RetentionPolicy.SOURCE：源码阶段保留
+RetentionPolicy.CLASS：编译进行的时候，不会被加载进JVM
+RetentionPolicy.RUNTIME：保留到程序运行的时候，会被加载进JVM。程序运行时可以获取到他们。
+
+@Documented
+和文档有关，能够将注解中的元素包含到 Javadoc 中去。
+
+@Target
+限定标签运用的场景。
+取值：
+ElementType.ANNOTATION_TYPE 可以给一个注解进行注解
+ElementType.CONSTRUCTOR 可以给构造方法进行注解
+ElementType.FIELD 可以给属性进行注解
+ElementType.LOCAL_VARIABLE 可以给局部变量进行注解
+ElementType.METHOD 可以给方法进行注解
+ElementType.PACKAGE 可以给一个包进行注解
+ElementType.PARAMETER 可以给一个方法内的参数进行注解
+ElementType.TYPE 可以给一个类型进行注解，比如类、接口、枚举
+
+@Inherited
+继承的意思。如果子注解
+
+@Repeatable
+可重复。
