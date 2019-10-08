@@ -4,3 +4,21 @@
 3.切换路径到tomcat的webapps目录，将jenkins.war文件放在该目录下
 4.tomcat/bin下启动tomcat，sh startup.sh，tomcat会解压war包，生成一个jenkins文件夹，可以通过ip+port/jenkins访问jenkins。
 5.也可以直接下载jenkins压缩包，解压后直接.msi文件安装。
+6.优秀插件
+conditional-buildstep
+Publish Over SSH
+Sonar Plugin
+TestNG Results Plugin
+Build Pipeline Plugin
+Github Plugin
+7.启动和关闭jenkins
+（1）启动
+使用内置的jetty服务器启动
+java -jar jenkins.war
+借助其他应用服务器启动，tomcat
+1.jenkins war包放到tomcat中，启动tomcat，访问网页
+（2）关闭jenkins
+网页上：http://127.0.0.1:8080/jenkins/exit
+（3）http://127.0.0.1:8080/restart
+8.jenkins插件更新
+http://updates.jenkins-ci.org/download/plugins/
