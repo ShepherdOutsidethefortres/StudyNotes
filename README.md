@@ -1,2 +1,2 @@
 # MySelfProjet
-自己创建的项目
+平时笔记

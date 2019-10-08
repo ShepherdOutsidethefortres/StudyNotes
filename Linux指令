@@ -1,0 +1,165 @@
+df -lh
+which python3
+//查看端口占用情况
+lsof -i:5037
+//杀掉
+kill
+
+定时脚本
+crontab -e
+以查找和删除mp3为扩展的文件为例：
+find / -name "*.mp3" |xargs rm -rf
+会删除所有以mp3为扩展的文件。操作的时候先：
+find / -name "*.mp3"
+会打印出匹配的文件，如果觉得正是想删除这些文件，再执行：
+find / -name "*.mp3" |xargs rm -rf
+
+或
+grep -E "word1|word2|word3"   file.txtl
+与
+grep word1 file.txt | grep word2 |grep word3
+
+grep lpd_team.kunkka_grid ral-worker.log |grep '11-15 11'|grep 1804819982 --color
+
+查看nmq进程是否存在
+ps -ef | grep proxy
+ps -ef | grep pusher
+
+redis使用
+keys wm:wl:zhongbao:disptimeconfig:range:%s:%s:%s
+redis查找keys:
+keys wm:detail* 查找wm:detail开头的key keys * 出所有的key
+获取某个key的value: get shop:ext:1454547399
+删除某个value：del xxxx
+
+linux查看用户列表
+cat /etc/passwd 可以查看所有用户的列表
+passwd map
+
+替换
+sed -i 's/原字符串/新字符串/g' /home/1.txt
+
+
+vim操作
+查看文本颜色主题
+:color
+:colorscheme
+修改文本颜色主题
+:colorscheme default
+粘贴文本
+:set paste
+替换文本，a替换为w
+:%s/a/w/g
+
+清空文本
+gg
+dG
+
+多行删除
+:1,10d
+
+
+scp
+拷贝目录：
+scp -r /home/map/wmq map@10.8.165.7:/home/map/wmq
+拷贝具体文件：
+scp -P 8287 /Users/iwm/Downloads/a.txt map@10.19.161.130:/home/map
+从docker机拷贝到本地
+scp -P 8287  map@10.19.161.130:/home/map/createWaimaiStrategy.php /Users/iwm/Downloads/
+
+新机子拷贝文件
+scp -p 16136 /Users/iwm/PhpstormProjects/TMS_Zhongbao/elezhongbao_h5/dist/trainingCenter.html map@10.3.118.164:/home/map/odp_zhongbao/webroot/static/elezhongbao_h5/dist
+
+//本地-->docker
+scp mis-paotui-56540b49c7dd689b693eca768545d802.tar.gz map@10.3.121.194:/home/map/odp_paotui
+
+
+怎么查看一个文本？
+1.cat
+
+2.tail -f
+3.more，空格键翻页
+more +m -n 文件
+从第m行开始，每页n行
+4.less
+
+5.head
+head -n m 文件 查看文件前m行
+6.vim
+
+1.sort
+（1）sort 文件名
+将文件的每一行作为一个单位，相互比较，比较原则是从首字符向后，依次按ASCII码值进行比较，最后将他们按升序输出。
+（2）sort testFile > newFileName
+将文件排序结果输出到一个新文件里
+（3）sort -u 文件名
+在输出行中去除重复行。
+（4）sort -r 文件名
+默认是升序，加-r变为降序
+（5）sort -n 文件名
+以数值来排序
+（6）sort -k -t 分隔符 文件名
+指定以分隔符为界，第几列来排序
+2.awk
+awk指令格式：awk -F 分隔符 'commands' filename
+三段：awk 'BEGIN{ commands } pattern{ commands } END{ commands }'
+BEGIN
+END
+pattern：通用命令中最重要部分，可选。假如没有提供pattern语句块，则默认运行{print}，即打印每一行
+（1）|
+shell读取用户的输入，发现有|，代表着管道；|左右被理解为简单命令，即前一个（左边）简单命令的标准输出指向后一个（右边）标准命令的标准输入。
+（2）$n
+表示第几列
+$0表示整行
+（3）内置变量
+NF 浏览记录的字段个数 列数
+NR 已读的记录数 行数
+（4）支持函数
+输出字符串的长度：length
+大写输出：toupper(字符串)
+（5）自定义变量
+awk '{sum+=5} END {print sum}'
+awk '{sum[$2]+=1} END {for(i in sum) print i "\t" sum[i]}'  text.txt
+（6）head -n
+前n条
+（7）wc -l 统计行数
+（8）筛选出paotui.log.dt日志里，第4列中不包含WrpcBase和StormEye的行
+awk '($4 !~ /\/paotui\/WrpcBase.php|\/paotui\/StormEye.php/) {print $0}' paotui.log.dt.2019070115
+筛选出paotui.log.dt日志里，第4列中包含WrpcBase和StormEye的行
+awk '($4 !~ /\/paotui\/WrpcBase.php|\/paotui\/StormEye.php/) {print $0}' paotui.log.dt.2019070115
+（9）统计全部数据的总行数
+awk 'BEGIN{pv=0}{pv++}END{print "pv:"pv}' paotui.log.dt.2019070115
+（10）分割文件
+awk '{if(NR)<1200} print $0' test.log > test.log1
+3.grep
+4.sed
+（1）统计文本行数
+sed -n '$=' filename
+（2）切割文件
+sed -n '0,100' test.log > test.log01
+5.uniq
+uniq命令只能对相邻行进行去重复操作，所以在进行去重前，先要对文本行进行排序，使重复行集中到一起。
+-c 在每列旁边显示该行重复出现的次数。
+6.split
+分割指令
+split -b -C -l 切割文件名 -d -a 2 输出文件名
+（1）-b 分割后的文档大小，单位是byte。直接指定文档大小
+（2）-C 分割后的文档，单行最大byte数。指定每行的字节数
+-b -C 结合使用
+（3）-d 使用数字作为后缀，同时使用-a length指定后缀长度
+（4）-l 分割后文档的行数
+7.有一个1w行的日志文件，文件内容是接口名称、耗时和是否成功，逗号分割，统计一下每个接口的耗时和成功率？后续：如果日志文件是1亿行，会怎么处理。
+线上日志文件很大，所以会面临此情况。思路：任何一个大的东西都要先切成小的东西，然后就像晋级赛一样筛选出来，晋级对比。
+（1）分割文件
+（2）从每个文件里边筛选数据
+8.某个时间段接口访问量
+grep '/paotui/districtruninfo' access_log |awk '{if($4<="[01/Jul/2019:17:00:00"&&$4>="[01/Jul/2019:16:00:00"){print $4;sum+=1}}END{print sum}'
+9.某个日志文件里前10接口访问量
+cat access_log |awk '{print $7}'|sort |uniq -c|sort -rn|head -10
+10.ps -ef 查看所有进程
+11.lsof -i:8214 查看端口占用情况
+12.netstat -tunlp |grep 8214
+13.kill -9 PID 杀掉某个进程
+14.nginx热启动
+nginx -s reload
+15.实时查看一个文本的后100行
