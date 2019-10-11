@@ -1,0 +1,61 @@
+1.Redis的键值类型
+字符串/哈希/列表/集合/有序集合
+2.Redis特点
+内存中数据集（in-memory dataset）
+主从复制
+非阻塞首次同步
+网络断开自动重连
+check-and-set机制
+pub/sub
+3.redis-server：redis服务器的daemon启动程序
+redis-cli：redis命令行操作工具
+redis-benchmark：redis性能测试工具
+4.运行
+redis-server /etc/redis/redis.conf
+5.redis终端
+redis-cli
+关闭：redis-cli shutdown
+6.Strings类型操作
+set mykey 1 存
+incr mykey 递增
+get mykey 取
+7.Hash
+一个值可以有多个字段。类似于对象
+hset people:id001 id id001
+hset people:id001 name ZhangSan
+hset people:id001 age 21
+hset people:id001 sex male
+hget people:id001 name
+8.List
+lpush 加到最左边
+rpush 加到最右边
+lindex 获取指定位置元素
+lrange 获得指定位置区间的元素
+lpop 删除最左边元素
+rpop 删除最右边元素
+
+lpush mylist b
+lpush mylist a
+rpush mylist c
+rpush mylist d
+lindex mylist 1    b
+lrange mylist 2 3   c，d
+lpop mylist
+rpop mylist
+lrange mylist 0 1  b，c
+8.Sets（超大数据量系统，唯一性判断）
+sadd 添加元素
+smember 返回集合中所有元素
+sismember 判断一个元素是否属于某个集合（sismember命令的复杂度是O(1)，不管集合中有多少个元素，它总是花费固定的时间完成执行）
+
+sadd mylist java
+sadd mylist c++
+sadd mylist obc
+sadd mylist java   0 重复添加，失败
+smembers mylist
+sismember mylist java 1
+9.Sorted Sets
+zadd
+zrange
+zrevrange
+zcount
