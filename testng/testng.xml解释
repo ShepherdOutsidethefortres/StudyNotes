@@ -1,0 +1,17 @@
+1.放置位置，跟src同级
+2.testng.xml中preserve-order属性
+<test>默认下的preserve-order为true，表示<test>下所有<classes>顺序执行
+对于需要按照一定顺序执行测试方法的需求，我们应该如何实现？
+(1) 使用priority指定执行顺序(默认值为0)，数值越小，越靠前执行
+（2）因为默认执行顺序是按照方法名的字典序升序排序执行的。那么，有目的地去定制方法名称，就可以让方法按照我们要求的顺序执行。方法A，方法B，方法C
+（3）在xml里面使用<include>指定需要执行的方法和顺序
+<test name="Regression 1" preserve-order="true">
+    <classes>
+      <class name="com.pack.preserve.ClassOne">
+          <methods>
+              <include name="B" />
+              <include name="A" />
+          </methods>
+      </class>
+    </classes>
+  </test>
