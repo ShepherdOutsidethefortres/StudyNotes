@@ -1,5 +1,7 @@
 1、log4j.rootCategory=INFO, stdout , R
 此句为将等级为INFO的日志信息输出到stdout和R这两个目的地，stdout和R的定义在下面的代码，可以任意起名。等级可分为OFF、FATAL、ERROR、WARN、INFO、DEBUG、ALL，如果配置OFF则不打出任何信息，如果配置为INFO这样只显示INFO、WARN、ERROR的log信息，而DEBUG信息不会被显示，具体讲解可参照第三部分定义配置文件中的logger。
+log4j.rootLogger是新的用法
+rootCategory是旧的用法
 2、log4j.appender.stdout=org.apache.log4j.ConsoleAppender
 此句为定义名为stdout的输出端是哪种类型，可以是
 org.apache.log4j.ConsoleAppender（控制台），
