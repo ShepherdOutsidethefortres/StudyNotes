@@ -1,0 +1,19 @@
+1.org.springframework.beans.factory.xml.XmlBeanDefinitionStoreException: Line 11 in XML document from class path resource [applicationContext.xml] is invalid;
+nested exception is org.xml.sax.SAXParseException; lineNumber: 11; columnNumber: 73; cvc-complex-type.2.4.c:
+The matching wildcard is strict, but no declaration can be found for element 'context:component-scan'.
+缺少约束引入
+2.要用spring的IOC（反转控制），需要在spring applicationContext.xml中进行配置，对应的bean类加上Component注解
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jsf="http://jsf.jd.com/schema/jsf"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean name="User" class="com.wangyin.knowledge.beans.User"></bean>
+
+</beans>
+3.IntelliJ IDEA 2017 提示“Unmapped Spring configuration files found.Please configure Spring facet.”解决办法
+打开project的配置界面，选择“Modules”页签，再选择报“Unmapped Spring configuration files found.”的Module，点击“+”按钮；
+在弹出的窗口内，全部勾选Unmapped的Spring配置文件，点击“确定”，然后在父界面中点击“应用”或“确定”完成保存。
+

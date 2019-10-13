@@ -1,0 +1,26 @@
+1.Schema约束内容解释
+首先对Spring引入Schema约束内容的解释：
+schema约束同为xml文件的约束模式语言之一, 最大的作用是为了验证xml文件的规范性的。
+在schema中, 每个约束模式文档都可以被赋予一个唯一的使用URI标识的名称空间, Xml文件引用schema约束的时候, 便是通过这个名称空间来声明来自哪个schema约束文档的。
+2.xmlns，xmlns:xsi，xmlns:mvc;xsi:schemaLocation
+xmlns是XML NameSpace的缩写 ，默认命名空间声明，该声明告诉schema验证器， 此xml中的所有元素都被声明在这个命名空间中。
+xmlns=“http://www.springframework.org/schema/beans” （整个xml的，默认的）
+或者
+xmlns:xsi表示使用xsi作为前缀的Namespace，当然前缀xsi需要在文档中声明。
+xmlns:mvc=“http://www.springframework.org/schema/mvc” （有前缀，是mvc的）
+
+xsi是指xml文件遵守xml规范，xsi全名：xml schema instance
+
+xsi:schemaLocation属性其实是xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"里的schemaLocation属性，它的值由一个或多个URI引用对组成。
+第一个URI是定义的XML Namespace的值，第二个URI给出Schema文档的位置，Schema处理器将从这个位置读取Schema文档，
+该文档的targetNamespace必须与第一个URI相匹配。
+例如：
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+在这里我们是引用的Spring框架的，在没有网络的情况下，开发软件约束的URI映射到本地，所以本地需要下载好源码或者schema
+3.spring的模块化配置
+分模块配置，随着项目的开发，文件越来越多，可能吧所有对象都放一个配置文件里面太多，于是可以再一个主配置文件中引入其他配置文件，
+导入其他配置文件关键词：<import resource="分配置文件的所在路径">
+
+
+
