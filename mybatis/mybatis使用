@@ -1,1 +1,4 @@
 https://blog.csdn.net/hellozpc/article/details/80878563#3Mybaits_109
+1.Class path contains multiple SLF4J bindings
+logback + slf4j-log4j12依赖冲突，删一个
+2.PooledDataSource forcefully closed/removed all connections
