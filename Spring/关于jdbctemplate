@@ -1,0 +1,10 @@
+JdbcTemplate知识点补充:
+JdbcTemplate就是Spring对jdbc的封装,通俗点说就是Spring对jdbc的封装的模板
+JdbcTemplate主要提供以下几种方法：
+		execute方法：可以用于执行任何SQL语句，一般用于执行DDL语句；
+		update方法及batchUpdate方法：update方法用于执行新增、修改、删除等语句；batchUpdate方法用于执行批处理相关语句；
+		query方法及queryForXXX方法：用于执行查询相关语句；
+		call方法：用于执行存储过程、函数相关语句。
+JdbcTemplate和Mybatis不一样:
+	 	Mybatis的sql语句放在了mapper.xml文件里面.相当于配置在了环境当中,随时都可以使用.
+	 	JDBCTemplate则是写在了实现类里面,使用的时候还要进行重新调用配置之类的. 以后的工作中可能对多个表进行操作,配置在环境中使用起来非常方便.
