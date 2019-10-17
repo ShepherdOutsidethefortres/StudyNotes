@@ -15,3 +15,48 @@ Spring Boot的核心启动器，包含了自动配置、日志和YAML
 web的场景，自动帮我们引入了web模块开发需要的相关jar包
 （4）spring-boot-starter-test
 springboot程序测试依赖，如果是自动创建项目默认添加
+----------------------------------------------------------------------------------------------------------------------------------------
+分水线
+----------------------------------------------------------------------------------------------------------------------------------------
+spring-boot-starter	springboot核心starter ,包括自动配置，日志，yaml配置文件的支持 
+spring-boot-starter-actuator	准生产特性，用来监控和管理应用
+spring-boot-starter-remote-shell	提供基于ssh协议的监控和管理
+spring-boot-starter-amqp	使用spring-rabbit支持AMQP
+spring-boot-starter-aop	使用AOP和AspectJ支持面向切面编程
+spring-boot-starter-batch	对springBatch支持
+spring-boot-starter-cache	对SpringCache抽象的支持
+spring-boot-starter-cloud-connectors	对云平台(Cloud Foundry ,Heroku)提供的服务简化的连接方式
+spring-boot-starter-data-elasticsearch	对spring-data-elasticsearch的支持
+spring-boot-starter-data-gemfire	对分布式存储GemFire的支持
+spring-boot-starter-data-jpa	对jpa的支持，包括spring-data-jap,spring-orm,Hibernate
+spring-boot-starter-data-mongodb	通过spring-data-mongodb对mongodb的支持
+spring-boot-starter-data-rest	通过spring-data-rest-webmvc对spring Data reposity暴露为REST形式的服务
+spring-boot-starter-data-solr	通过spring-data-solr对Apache Solr的支持
+spring-boot-starter-data-freemaker	对Freemaker的支持
+spring-boot-starter-data-groovy-templates	对Groovy模版引擎的支持
+spring-boot-starter-hateoas	通过spring-hateoas对基于HATEOAS的REST形式的网络服务的支持
+spring-boot-starter-hornetq	通过HornetQ对JMS的支持
+spring-boot-starter-integration	对系统集成框架spring-integration的支持
+spring-boot-starter-jdbc	对JDBC数据库的支持
+spring-boot-starter-jersey	对Jersey REST形式的网络服务的支持
+spring-boot-starter-jta-atomikos	通过Atomikos对分布式事物的支持
+spring-boot-starter-jta-bitronix	通过Bitronix对分布式事物的支持
+spring-boot-starter-mail	对spring mail的支持
+spring-boot-starter-mobile	对spring mobile的支持
+spring-boot-starter-mustache	对Mustache模版引擎的支持
+spring-boot-starter-redis	对键值对内存数据库Redis的支持，包含spring-redis
+spring-boot-starter-security	对spring-security的支持
+spring-boot-starter-social-facebook	通过spring-social-facebook 对facebook的支持
+spring-boot-starter-social-twitter	通过spring-social-twitter 对twitter的支持
+spring-boot-starter-social-linkedin	通过spring-social-linkedin 对linkedin的支持
+spring-boot-starter-thymeleaf	对Thymeleaf模版引擎的支持，包含于spring的整合配置
+spring-boot-starter-velocity	对velocity模版引擎的支持
+spring-boot-starter-web	对web项目开发的支持，包含tomcat和spring-webmvc
+spring-boot-starter-Tomcat	springboot默认容器tomcat
+spring-boot-starter-Jetty	jetty容器
+spring-boot-starter-undertow	Undertow容器
+spring-boot-starter-logging	默认日志输出框架Logback
+spring-boot-starter-log4j	支持log4j
+spring-boot-starter-websocket	websocket的支持
+spring-boot-starter-ws spring webservice的支持
+
