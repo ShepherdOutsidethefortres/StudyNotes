@@ -39,7 +39,6 @@ passwd map
 替换
 sed -i 's/原字符串/新字符串/g' /home/1.txt
 
-
 vim操作
 查看文本颜色主题
 :color
@@ -58,7 +57,6 @@ dG
 多行删除
 :1,10d
 
-
 scp
 拷贝目录：
 scp -r /home/map/wmq map@10.8.165.7:/home/map/wmq
@@ -73,19 +71,21 @@ scp -p 16136 /Users/iwm/PhpstormProjects/TMS_Zhongbao/elezhongbao_h5/dist/traini
 //本地-->docker
 scp mis-paotui-56540b49c7dd689b693eca768545d802.tar.gz map@10.3.121.194:/home/map/odp_paotui
 
-
 怎么查看一个文本？
 1.cat
-
 2.tail -f
 3.more，空格键翻页
 more +m -n 文件
 从第m行开始，每页n行
 4.less
-
 5.head
 head -n m 文件 查看文件前m行
 6.vim
+
+less和more的区别
+1.  less可以按键盘上下方向键显示上下内容,more不能通过上下方向键控制显示
+2.  less不必读整个文件，加载速度会比more更快
+3.  less退出后shell不会留下刚显示的内容,而more退出后会在shell上留下刚显示的内容
 
 1.sort
 （1）sort 文件名
