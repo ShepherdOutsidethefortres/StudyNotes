@@ -4,3 +4,13 @@
 SQL Server，Oracle，Mysql，Sybase，DB2
 3.非关系型数据库
 Neo4j，Hbase，Mongodb，Redis
+4.数据库sql语句
+增删改查
+insert
+delete from
+update tablename set
+select
+左外连接，右外连接，内连接
+group by
+GROUP BY必须得配合聚合函数来用
+having

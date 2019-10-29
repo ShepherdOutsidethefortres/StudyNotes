@@ -22,3 +22,25 @@ java -jar jenkins.war
 （3）http://127.0.0.1:8080/restart
 8.jenkins插件更新
 http://updates.jenkins-ci.org/download/plugins/
+9.jenkins总是权限受制
+(1)mac查看用户
+groups // 查看当前用户所属组（Note：用户所属组可能有多个）
+groups user_name // 查看指定用户所属组
+id -a user_name // 可以查到指定用户所属组更详细的信息
+whoami当前用户的用户
+(2)Mac修改jenkins进程默认账户解决权限问题
+首先停止jenkins
+sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+sudo vim /Library/LaunchDaemons/org.jenkins-ci.plist
+将下面对应的位置分别修改为你需要的用户组和用户名
+admin
+huiweizhao
+sudo chown -R zhulangren:wheel /Users/Shared/Jenkins/
+sudo chown -R zhulangren:wheel /var/log/jenkins/
+启动jenkins
+sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
+10.jenkins有些环境变量找不到
+可以在执行shell时进行设置
+PATH=/usr/local/bin
+
+
