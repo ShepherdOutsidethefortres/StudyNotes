@@ -1,0 +1,18 @@
+1.mac 1045 - Access denied for user 'root'@'localhost' (using password: YES)
+Mac下启动/停止/重启mysql服务
+进入mysql目录文件
+cd /usr/local/mysql/support-files  
+（1） 启动mysql服务
+sudo /usr/local/mysql/support-files/mysql.server start
+（2）停止mysql服务
+sudo /usr/local/mysql/support-files/mysql.server stop
+（3） 重启mysql服务
+sudo /usr/local/mysql/support-files/mysql.server restart
+
+cd /usr/local/mysql
+vim my.cnf
+在 [mysqld] 底下添加语句：skip-grant-tables(skip-grant-tables作为启动参数的作用：MYSQL服务器不加载权限判断，任何用户都能访问数据库。)
+mysql -u root -p
+mysql>use mysql          //使用这个数据库
+mysql>uodate user set passward=passward("123456") whrer user="root";   //修改数据库的密码
+mysql>flush privileges;      //刷新数据库
