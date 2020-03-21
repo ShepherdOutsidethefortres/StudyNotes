@@ -16,3 +16,6 @@ mysql -u root -p
 mysql>use mysql          //使用这个数据库
 mysql>uodate user set passward=passward("123456") whrer user="root";   //修改数据库的密码
 mysql>flush privileges;      //刷新数据库
+2.deadlock
+（1）show full processlist;
+（2）杀死所有id:kill id号
