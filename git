@@ -44,6 +44,43 @@ git reset --hard 版本id
 
   git config --global core.autocrlf true
   //提交本地分支到远程仓库
-  git push origin 本地分支名
-  //新建本地分支与远程分支关联
-  git branch –set-upstream 本地新建分支名 origin/远程分支名
+
+Git fetch:只是从远程获取最新版本到本地,不会merge(合并)
+Git pull:从远程获取最新版本并merge(合并)到本地
+导致报错:error: You have not concluded your merge (MERGE_HEAD exists).的原因可能是在以前pull下来的代码自动合并失败
+解决办法一:保留本地的更改,中止合并->重新合并->重新拉取
+$:git merge --abort
+$:git reset --merge
+$:git pull
+解决办法二:舍弃本地代码,远端版本覆盖本地版本(慎重)
+$:git fetch --all
+$:git reset --hard origin/master
+$:git fetch
+
+git clean -d -fx
+即可。可能很多人都不明白-d，-fx到底是啥意思，其实git clean -d -fx表示：删除 一些 没有 git add 的 文件；
+    git clean 参数
+    -n 显示将要删除的文件和目录；
+    -x -----删除忽略文件已经对git来说不识别的文件
+    -d -----删除未被添加到git的路径中的文件
+    -f -----强制运行
+    git clean -n
+    git clean -df
+    git clean -f
+
+#建立本地分支
+git checkout -b trade
+#在远程仓库建立同样的分支
+git push origin trade
+#本地仓库与远程仓库关联
+git branch --set-upstream-to=origin/<branch> trade
+
+有时在开发的feature中，整个分支的功能并没有完成开发完成，但是，有几个修改的基础文件需要合并到develop中，这个时候的操作步骤为：
+git checkout develop     //切换到Develop分支
+git checkout feature/new1.1 -- usercontroller.php  //将feature/new1.1中的usercontroller.php合并到develop分支中
+git commit usercontroller.php -m 'xxx'    //提交文件
+
+git branch -d [branchName]  #删除本地分支
+git push origin --delete [branchname] #删除远程分支
+git reset --hard origin/[branchname] #本地代码与某个分支代码对齐
+git push -f 覆盖远程分支
